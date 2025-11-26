@@ -16,7 +16,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     
     @Override
     public Optional<Product> findById(int code) {
-        String sql = "SELECT * FROM produtos WHERE codigo = ?";
+        String sql = "SELECT * FROM products WHERE code = ?";
         
         try (Connection conn = ConnectionBD.getConnect();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -26,9 +26,9 @@ public class ProductRepositoryImpl implements ProductRepository {
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     Product product = new Product(
-                        rs.getInt("codigo"),
-                        rs.getString("nome"),
-                        rs.getInt("quantidade")
+                        rs.getInt("code"),
+                        rs.getString("name"),
+                        rs.getInt("quantity")
                     );
                     return Optional.of(product);
                 }
@@ -45,7 +45,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public List<Product> findAll() {
         List<Product> products = new ArrayList<>();
-        String sql = "SELECT * FROM produtos ORDER BY codigo";
+        String sql = "SELECT * FROM products ORDER BY code";
         
         try (Connection conn = ConnectionBD.getConnect();
             Statement stmt = conn.createStatement();
@@ -53,9 +53,9 @@ public class ProductRepositoryImpl implements ProductRepository {
             
             while (rs.next()) {
                 Product product = new Product(
-                    rs.getInt("codigo"),
-                    rs.getString("nome"),
-                    rs.getInt("quantidade")
+                    rs.getInt("code"),
+                    rs.getString("name"),
+                    rs.getInt("quantity")
                 );
                 products.add(product);
             }
@@ -71,7 +71,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public List<Product> findByName(String name) {
         List<Product> products = new ArrayList<>();
-        String sql = "SELECT * FROM produtos WHERE nome LIKE ? ORDER BY nome";
+        String sql = "SELECT * FROM products WHERE name LIKE ? ORDER BY name";
         
         try (Connection conn = ConnectionBD.getConnect();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -81,9 +81,9 @@ public class ProductRepositoryImpl implements ProductRepository {
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
                     Product product = new Product(
-                        rs.getInt("codigo"),
-                        rs.getString("nome"),
-                        rs.getInt("quantidade")
+                        rs.getInt("code"),
+                        rs.getString("name"),
+                        rs.getInt("quantity")
                     );
                     products.add(product);
                 }
@@ -91,6 +91,32 @@ public class ProductRepositoryImpl implements ProductRepository {
             
         } catch (SQLException e) {
             System.err.println("Erro ao buscar produtos por nome: " + e.getMessage());
+            e.printStackTrace();
+        }
+        
+        return products;
+    }
+
+    @Override
+    public List<Product> findLowStock() {
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE quantity < 10 ORDER BY quantity";
+        
+        try (Connection conn = ConnectionBD.getConnect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)) {
+            
+            while (rs.next()) {
+                Product product = new Product(
+                    rs.getInt("code"),
+                    rs.getString("name"),
+                    rs.getInt("quantity")
+                );
+                products.add(product);
+            }
+            
+        } catch (SQLException e) {
+            System.err.println("Erro ao listar produtos com baixo estoque: " + e.getMessage());
             e.printStackTrace();
         }
         
@@ -108,7 +134,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     
     @Override
     public Product insert(Product product) {
-        String sql = "INSERT INTO produtos (nome, quantidade) VALUES (?, ?)";
+        String sql = "INSERT INTO products (name, quantity) VALUES (?, ?)";
         
         try (Connection conn = ConnectionBD.getConnect();
             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -137,7 +163,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     
     @Override
     public Product update(Product product) {
-        String sql = "UPDATE produtos SET nome = ?, quantidade = ? WHERE codigo = ?";
+        String sql = "UPDATE products SET name = ?, quantity = ? WHERE code = ?";
         
         try (Connection conn = ConnectionBD.getConnect();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -167,7 +193,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     
     @Override
     public boolean deleteById(int code) {
-        String sql = "DELETE FROM produtos WHERE codigo = ?";
+        String sql = "DELETE FROM products WHERE code = ?";
     
         try (Connection conn = ConnectionBD.getConnect();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {

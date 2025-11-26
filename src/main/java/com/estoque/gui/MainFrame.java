@@ -1,107 +1,104 @@
 package com.estoque.gui;
 
-//import com.estoque.service.BackupService;
 import javax.swing.*;
+
+import com.estoque.service.impl.ProductServiceImpl;
+
 import java.awt.*;
 
 public class MainFrame extends JFrame{
     private JTabbedPane tabbedPane;
-    private BackupService backupService;
+    private ProductServiceImpl productServiceImpl;
     
     public MainFrame() {
-        this.backupService = new BackupService();
-        inicializarComponentes();
+        this.productServiceImpl = new ProductServiceImpl();
+        initializeComponents();
     }
     
-    private void inicializarComponentes() {
+    private void initializeComponents() {
         setTitle("Sistema de Gerenciamento de Estoque");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(900, 600);
         setLocationRelativeTo(null);
         
-        // Criar menu
-        criarMenuBar();
+        createMenuBar();
         
-        // Criar abas
         tabbedPane = new JTabbedPane();
         
-        tabbedPane.addTab("Cadastrar Produto", new CadastroProdutoPanel());
+        tabbedPane.addTab("Cadastrar Produto", new ProductRegistrationPanel());
         tabbedPane.addTab("Atualizar Produto", new ProductUpdatePanel());
-        tabbedPane.addTab("Excluir Produto", new ExcluirProdutoPanel());
-        tabbedPane.addTab("Listar Todos", new ListarProdutosPanel());
-        tabbedPane.addTab("Baixo Estoque", new ListarBaixoEstoquePanel());
+        tabbedPane.addTab("Excluir Produto", new ProductDeletePanel());
+        tabbedPane.addTab("Listar Todos", new ListProductsPanel());
+        tabbedPane.addTab("Baixo Estoque", new ListLowStockPanel());
         
         add(tabbedPane, BorderLayout.CENTER);
         
-        // Painel de rodapé
-        JPanel rodape = new JPanel();
-        rodape.setBorder(BorderFactory.createEtchedBorder());
-        JLabel lblInfo = new JLabel("Sistema de Gerenciamento de Estoque v1.0 | Desenvolvido para POO");
-        rodape.add(lblInfo);
-        add(rodape, BorderLayout.SOUTH);
+        JPanel footer = new JPanel();
+        footer.setBorder(BorderFactory.createEtchedBorder());
+        JLabel lblInfo = new JLabel("Sistema de Gerenciamento de Estoque v1.0");
+        footer.add(lblInfo);
+        add(footer, BorderLayout.SOUTH);
     }
 
-    private void criarMenuBar() {
+    private void createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         
-        // Menu Arquivo
-        JMenu menuArquivo = new JMenu("Arquivo");
+        JMenu menuFile = new JMenu("Arquivo");
         
-        JMenuItem itemBackupTexto = new JMenuItem("Backup (Texto)");
-        itemBackupTexto.addActionListener(e -> realizarBackup("txt"));
+        JMenuItem backupTextItem = new JMenuItem("Backup (Texto)");
+        backupTextItem.addActionListener(e -> createBackup("txt"));
         
-        JMenuItem itemBackupBinario = new JMenuItem("Backup (Binário)");
-        itemBackupBinario.addActionListener(e -> realizarBackup("dat"));
+        JMenuItem backupBinaryItem = new JMenuItem("Backup (Binário)");
+        backupBinaryItem.addActionListener(e -> createBackup("dat"));
         
-        JMenuItem itemBackupCSV = new JMenuItem("Backup (CSV)");
-        itemBackupCSV.addActionListener(e -> realizarBackup("csv"));
+        JMenuItem backupCSVItem = new JMenuItem("Backup (CSV)");
+        backupCSVItem.addActionListener(e -> createBackup("csv"));
         
-        JMenuItem itemSair = new JMenuItem("Sair");
-        itemSair.addActionListener(e -> System.exit(0));
+        JMenuItem exitItem = new JMenuItem("Sair");
+        exitItem.addActionListener(e -> System.exit(0));
         
-        menuArquivo.add(itemBackupTexto);
-        menuArquivo.add(itemBackupBinario);
-        menuArquivo.add(itemBackupCSV);
-        menuArquivo.addSeparator();
-        menuArquivo.add(itemSair);
+        menuFile.add(backupTextItem);
+        menuFile.add(backupBinaryItem);
+        menuFile.add(backupCSVItem);
+        menuFile.addSeparator();
+        menuFile.add(exitItem);
         
-        // Menu Ajuda
-        JMenu menuAjuda = new JMenu("Ajuda");
-        JMenuItem itemSobre = new JMenuItem("Sobre");
-        itemSobre.addActionListener(e -> mostrarSobre());
-        menuAjuda.add(itemSobre);
+        JMenu menuHelp = new JMenu("Ajuda");
+        JMenuItem aboutItem= new JMenuItem("Sobre");
+        aboutItem.addActionListener(e -> showAbout());
+        menuHelp.add(aboutItem);
         
-        menuBar.add(menuArquivo);
-        menuBar.add(menuAjuda);
+        menuBar.add(menuFile);
+        menuBar.add(menuHelp);
         
         setJMenuBar(menuBar);
     }
     
-    private void realizarBackup(String tipo) {
+    private void createBackup(String type) {
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setSelectedFile(new java.io.File(backupService.gerarNomeArquivoBackup(tipo)));
+        fileChooser.setSelectedFile(new java.io.File(productServiceImpl.generateFileName(type)));
         
-        int resultado = fileChooser.showSaveDialog(this);
+        int result = fileChooser.showSaveDialog(this);
         
-        if (resultado == JFileChooser.APPROVE_OPTION) {
-            String caminho = fileChooser.getSelectedFile().getAbsolutePath();
-            boolean sucesso = false;
+        if (result == JFileChooser.APPROVE_OPTION) {
+            String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+            boolean success = false;
             
-            switch (tipo) {
+            switch (type) {
                 case "txt":
-                    sucesso = backupService.backupTexto(caminho);
+                    success = productServiceImpl.backupText(filePath);
                     break;
                 case "dat":
-                    sucesso = backupService.backupBinario(caminho);
+                    success = productServiceImpl.backupBinary(filePath);
                     break;
                 case "csv":
-                    sucesso = backupService.backupCSV(caminho);
+                    success = productServiceImpl.backupCSV(filePath);
                     break;
             }
             
-            if (sucesso) {
+            if (success) {
                 JOptionPane.showMessageDialog(this, 
-                    "Backup realizado com sucesso!\nArquivo: " + caminho,
+                    "Backup realizado com sucesso!\nArquivo: " + filePath,
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this,
@@ -111,12 +108,12 @@ public class MainFrame extends JFrame{
         }
     }
     
-    private void mostrarSobre() {
-        String mensagem = """
+    private void showAbout() {
+        String message = """
             Sistema de Gerenciamento de Estoque
             Versão: 1.0
             
-            Desenvolvido como projeto acadêmico
+            Desenvolvido como projeto acadêmico por Amanda Marques Pardinho e Ana Lívia Santos
             Disciplina: Programação Orientada a Objetos
             
             Funcionalidades:
@@ -127,20 +124,17 @@ public class MainFrame extends JFrame{
             - Backup de dados
             """;
         
-        JOptionPane.showMessageDialog(this, mensagem, 
+        JOptionPane.showMessageDialog(this, message, 
             "Sobre o Sistema", JOptionPane.INFORMATION_MESSAGE);
     }
     
-    /**
-     * Atualiza todas as abas de listagem
-     */
-    public void atualizarListagens() {
+    public void updateLists() {
         Component[] components = tabbedPane.getComponents();
         for (Component comp : components) {
-            if (comp instanceof ListarProdutosPanel) {
-                ((ListarProdutosPanel) comp).atualizarLista();
-            } else if (comp instanceof ListarBaixoEstoquePanel) {
-                ((ListarBaixoEstoquePanel) comp).atualizarLista();
+            if (comp instanceof ListProductsPanel) {
+                ((ListProductsPanel) comp).updateList();
+            } else if (comp instanceof ListLowStockPanel) {
+                ((ListLowStockPanel) comp).updateList();
             }
         }
     }

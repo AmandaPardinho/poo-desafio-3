@@ -56,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean backupText(String filePath) {
-        List<Product> produtos = productRepository.findAll();
+        List<Product> products = productRepository.findAll();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
 
@@ -67,13 +67,13 @@ public class ProductServiceImpl implements ProductService {
             writer.write("Data/Hora: " + LocalDateTime.now()
                     .format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
             writer.newLine();
-            writer.write("Total de produtos: " + produtos.size());
+            writer.write("Total de produtos: " + products.size());
             writer.newLine();
             writer.write("=================================================");
             writer.newLine();
             writer.newLine();
 
-            for (Product p : produtos) {
+            for (Product p : products) {
                 writer.write(String.format("Código: %d | Nome: %s | Quantidade: %d",
                         p.getCode(), p.getName(), p.getQuantity()));
                 writer.newLine();
@@ -91,12 +91,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean backupBinary(String filePath) {
-        List<Product> produtos = productRepository.findAll();
+        List<Product> products = productRepository.findAll();
 
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new FileOutputStream(filePath))) {
 
-            oos.writeObject(produtos);
+            oos.writeObject(products);
             System.out.println("Backup binário realizado com sucesso!");
             return true;
 
@@ -109,14 +109,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean backupCSV(String filePath) {
-        List<Product> produtos = productRepository.findAll();
+        List<Product> products = productRepository.findAll();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
 
             writer.write("Codigo,Nome,Quantidade");
             writer.newLine();
 
-            for (Product p : produtos) {
+            for (Product p : products) {
                 writer.write(String.format("%d,\"%s\",%d",
                         p.getCode(), p.getName(), p.getQuantity()));
                 writer.newLine();
@@ -134,8 +134,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public String generateFileName(String extension) {
-        String dataHora = LocalDateTime.now()
+        String dateTime = LocalDateTime.now()
                 .format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-        return "backup_produtos_" + dataHora + "." + extension;
+        return "backup_produtos_" + dateTime + "." + extension;
     }
 }

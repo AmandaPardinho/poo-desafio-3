@@ -12,6 +12,8 @@ public interface ProductRepository {
     
     List<Product> findByName(String name);
 
+    List<Product> findLowStock();
+
     Product save(Product product);
 
     Product insert(Product product);
