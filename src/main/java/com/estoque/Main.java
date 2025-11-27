@@ -4,27 +4,41 @@ import org.h2.tools.Server;
 import com.estoque.repository.ConnectionBD;
 import com.estoque.controller.ProductController;
 import com.estoque.gui.MainFrame;
+
+import java.awt.Font;
+import java.util.Enumeration;
+
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
 
 public class Main {
 
     public static void main(String[] args) {
 
         try {
-            // Inicia o console do H2 na porta 8082
-            Server.createWebServer("-web", "-webAllowOthers", "-webPort", "8082").start();
-            System.out.println("H2 Console rodando em: http://localhost:8082");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // Inicia o console do H2 na porta 8082
+        Server.createWebServer("-web", "-webAllowOthers", "-webPort", "8082").start();
+        System.out.println("H2 Console rodando em: http://localhost:8082");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
         System.out.println("===========================================");
         System.out.println("Sistema de Gerenciamento de Estoque");
         System.out.println("===========================================");
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            configureGlobalFont(new Font("Segoe UI", Font.PLAIN, 18));
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+            UIManager.put("TabbedPane.contentBorderInsets", new java.awt.Insets(10, 10, 10, 10));
+            UIManager.put("TabbedPane.tabInsets", new java.awt.Insets(5, 10, 5, 10));
             System.out.println("✓ Interface configurada");
         } catch (Exception e) {
             System.err.println("Erro ao configurar Look and Feel: " + e.getMessage());
@@ -45,7 +59,9 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             try {
                 MainFrame frame = new MainFrame();
+                frame.setSize(1024, 768);
                 frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
                 System.out.println("✓ Interface gráfica iniciada!");
                 System.out.println("\n===========================================");
                 System.out.println("Sistema pronto para uso!");
@@ -87,4 +103,18 @@ public class Main {
         }
         System.out.println("População concluída.\n");
     }
+
+    private static void configureGlobalFont(Font font) {
+        FontUIResource fontResource = new FontUIResource(font);
+        Enumeration<Object> keys = UIManager.getDefaults().keys();
+        while (keys.hasMoreElements()) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get(key);
+            if (value instanceof FontUIResource) {
+                UIManager.put(key, fontResource);
+            }
+        }
+    }
 }
+
+

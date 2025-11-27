@@ -24,11 +24,11 @@ public class MainFrame extends JFrame {
 
         tabbedPane = new JTabbedPane();
 
-        tabbedPane.addTab("📝 Cadastrar Produto", new ProductRegistrationPanel());
-        tabbedPane.addTab("✏️ Atualizar Produto", new ProductUpdatePanel());
-        tabbedPane.addTab("🗑️ Excluir Produto", new ProductDeletePanel());
-        tabbedPane.addTab("📋 Listar Todos", new ListProductsPanel());
-        tabbedPane.addTab("⚠️ Baixo Estoque", new ListLowStockPanel());
+        tabbedPane.addTab("Cadastrar Produto", new ProductRegistrationPanel());
+        tabbedPane.addTab("Atualizar Produto", new ProductUpdatePanel());
+        tabbedPane.addTab("Excluir Produto", new ProductDeletePanel());
+        tabbedPane.addTab("Listar Todos", new ListProductsPanel());
+        tabbedPane.addTab("Baixo Estoque", new ListLowStockPanel());
 
         add(tabbedPane, BorderLayout.CENTER);
 
@@ -44,16 +44,16 @@ public class MainFrame extends JFrame {
 
         JMenu menuFile = new JMenu("Arquivo");
 
-        JMenuItem backupTextItem = new JMenuItem("💾 Backup (Texto)");
+        JMenuItem backupTextItem = new JMenuItem("Backup (Texto)");
         backupTextItem.addActionListener(e -> createBackup("txt"));
 
-        JMenuItem backupBinaryItem = new JMenuItem("💾 Backup (Binário)");
+        JMenuItem backupBinaryItem = new JMenuItem("Backup (Binário)");
         backupBinaryItem.addActionListener(e -> createBackup("dat"));
 
-        JMenuItem backupCSVItem = new JMenuItem("💾 Backup (CSV)");
+        JMenuItem backupCSVItem = new JMenuItem("Backup (CSV)");
         backupCSVItem.addActionListener(e -> createBackup("csv"));
 
-        JMenuItem exitItem = new JMenuItem("❌ Sair");
+        JMenuItem exitItem = new JMenuItem("Sair");
         exitItem.addActionListener(e -> System.exit(0));
 
         menuFile.add(backupTextItem);
@@ -63,7 +63,7 @@ public class MainFrame extends JFrame {
         menuFile.add(exitItem);
 
         JMenu menuHelp = new JMenu("Ajuda");
-        JMenuItem aboutItem = new JMenuItem("ℹ️ Sobre");
+        JMenuItem aboutItem = new JMenuItem("Sobre");
         aboutItem.addActionListener(e -> showAbout());
         menuHelp.add(aboutItem);
 

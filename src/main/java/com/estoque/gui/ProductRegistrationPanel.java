@@ -1,14 +1,16 @@
 package com.estoque.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -37,11 +39,14 @@ public class ProductRegistrationPanel extends JPanel{
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
+        JPanel topContainer = new JPanel();
+        topContainer.setLayout(new BoxLayout(topContainer, BoxLayout.Y_AXIS));
+
         JPanel formPanel = new JPanel(new GridBagLayout());
         formPanel.setBorder(BorderFactory.createTitledBorder("Dados do Produto"));
         
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.insets = new Insets(10, 10, 10, 10);
         gbc.anchor = GridBagConstraints.WEST;
         
         gbc.gridx = 0;
@@ -64,11 +69,13 @@ public class ProductRegistrationPanel extends JPanel{
         gbc.fill = GridBagConstraints.HORIZONTAL;
         SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 999999, 1);
         spnQuantity = new JSpinner(model);
-        JSpinner.NumberEditor editor = new JSpinner.NumberEditor(spnQuantity, "#");
-        spnQuantity.setEditor(editor);
+        JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) spnQuantity.getEditor();
+        editor.getTextField().setHorizontalAlignment(JTextField.LEFT);
         formPanel.add(spnQuantity, gbc);
         
-        add(formPanel, BorderLayout.NORTH);
+        //add(formPanel, BorderLayout.NORTH);
+        topContainer.add(formPanel);
+        topContainer.add(Box.createVerticalStrut(10));
         
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         
@@ -83,7 +90,8 @@ public class ProductRegistrationPanel extends JPanel{
         buttonsPanel.add(btnRegister);
         buttonsPanel.add(btnClear);
         
-        add(buttonsPanel, BorderLayout.CENTER);
+        add(topContainer, BorderLayout.NORTH);
+        //add(buttonsPanel, BorderLayout.CENTER);
         
         JPanel instructionsPanel = new JPanel();
         instructionsPanel.setBorder(BorderFactory.createTitledBorder("Instruções"));
@@ -94,11 +102,12 @@ public class ProductRegistrationPanel extends JPanel{
             "O código do produto será gerado automaticamente pelo sistema."
         );
         txtInstrutions.setEditable(false);
-        txtInstrutions.setBackground(instructionsPanel.getBackground());
-        txtInstrutions.setFont(new Font("Arial", Font.PLAIN, 36));
-        instructionsPanel.add(txtInstrutions);
+        txtInstrutions.setBackground(new Color(240, 240, 240));
+        txtInstrutions.setMargin(new Insets(10, 10, 10, 10));
+        //txtInstrutions.setFont(new Font("Arial", Font.PLAIN, 36));
+        instructionsPanel.add(txtInstrutions, BorderLayout.CENTER);
         
-        add(instructionsPanel, BorderLayout.SOUTH);
+        //add(instructionsPanel, BorderLayout.SOUTH);
     }
     
     private void registerProduct() {

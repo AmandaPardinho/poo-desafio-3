@@ -25,7 +25,10 @@ public class ProductDeletePanel extends JPanel {
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        JPanel contentPanel = new JPanel();
+        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+
+        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         searchPanel.setBorder(BorderFactory.createTitledBorder("Buscar Produto"));
 
         searchPanel.add(new JLabel("Código do Produto:"));
@@ -34,20 +37,23 @@ public class ProductDeletePanel extends JPanel {
 
         btnSearch = new JButton("Buscar");
         btnSearch.addActionListener(e -> searchProduct());
+        searchPanel.add(Box.createHorizontalStrut(10));
         searchPanel.add(btnSearch);
 
-        add(searchPanel, BorderLayout.NORTH);
+        contentPanel.add(searchPanel);
+        contentPanel.add(Box.createVerticalStrut(20));
+        // add(searchPanel, BorderLayout.NORTH);
 
-        JPanel painelInfo = new JPanel(new GridBagLayout());
-        painelInfo.setBorder(BorderFactory.createTitledBorder("Informações do Produto"));
+        JPanel infoPanel = new JPanel(new GridBagLayout());
+        infoPanel.setBorder(BorderFactory.createTitledBorder("Informações do Produto"));
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.insets = new Insets(10, 10, 10, 10);
         gbc.anchor = GridBagConstraints.WEST;
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        painelInfo.add(new JLabel("Nome:"), gbc);
+        infoPanel.add(new JLabel("Nome:"), gbc);
 
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -55,22 +61,24 @@ public class ProductDeletePanel extends JPanel {
         txtName = new JTextField(30);
         txtName.setEditable(false);
         txtName.setBackground(Color.LIGHT_GRAY);
-        painelInfo.add(txtName, gbc);
+        infoPanel.add(txtName, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.NONE;
         gbc.weightx = 0;
-        painelInfo.add(new JLabel("Quantidade:"), gbc);
+        infoPanel.add(new JLabel("Quantidade:"), gbc);
 
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         txtQuantity = new JTextField(10);
         txtQuantity.setEditable(false);
         txtQuantity.setBackground(Color.LIGHT_GRAY);
-        painelInfo.add(txtQuantity, gbc);
+        infoPanel.add(txtQuantity, gbc);
 
-        add(painelInfo, BorderLayout.CENTER);
+        // add(infoPanel, BorderLayout.CENTER);
+        contentPanel.add(infoPanel);
+        add(contentPanel, BorderLayout.NORTH);
 
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
