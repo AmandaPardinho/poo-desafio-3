@@ -1,0 +1,321 @@
+2025-11-26 20:21:43.038118-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]IF IT NOT EXISTS products(\000a    code INT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(100) NOT NULL,\000a    quantity INT NOT NULL CHECK (quantidade >= 0),\000a    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\000a    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\000a);\000a\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF IT NOT EXISTS products(
+    code INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL CHECK (quantidade >= 0),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ [42001-224]
+2025-11-26 20:21:43.380655-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products ORDER BY code [42104-224]
+2025-11-26 20:25:05.308164-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]IF IT NOT EXISTS products(\000a    code INT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(100) NOT NULL,\000a    quantity INT NOT NULL CHECK (quantidade >= 0),\000a    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\000a    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\000a);\000a\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF IT NOT EXISTS products(
+    code INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL CHECK (quantidade >= 0),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ [42001-224]
+2025-11-26 20:25:05.545906-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM Products ORDER BY code [42104-224]
+2025-11-26 21:01:10.896022-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]IF IT NOT EXISTS products(\000a    code INT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(100) NOT NULL,\000a    quantity INT NOT NULL CHECK (quantity >= 0),\000a    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\000a    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\000a);\000a\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF IT NOT EXISTS products(
+    code INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL CHECK (quantity >= 0),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ [42001-224]
+2025-11-26 21:01:11.109043-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products ORDER BY code [42104-224]
+2025-11-26 21:01:11.198897-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE quantity < 10 ORDER BY quantity [42104-224]
+2025-11-26 21:02:01.778636-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE quantity < 10 ORDER BY quantity [42104-224]
+2025-11-26 21:15:58.615093-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]IF IT NOT EXISTS products(\000a    code INT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(100) NOT NULL,\000a    quantity INT NOT NULL CHECK (quantity >= 0),\000a    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\000a    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\000a);\000a\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF IT NOT EXISTS products(
+    code INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL CHECK (quantity >= 0),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ [42001-224]
+2025-11-26 21:15:58.702556-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.728596-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:58.747742-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.771212-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:58.789117-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.806800-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:58.823366-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.840841-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:58.856334-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.873209-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:58.890574-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.907081-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:58.923537-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.942030-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:58.971966-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:58.990202-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:59.005875-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:59.021904-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:59.038119-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:59.054029-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:59.070367-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:59.087561-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:59.105631-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:15:59.122169-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:15:59.347195-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products ORDER BY code [42104-224]
+2025-11-26 21:15:59.408818-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE quantity < 10 ORDER BY quantity [42104-224]
+2025-11-26 21:17:39.285327-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]IF IT NOT EXISTS products(\000a    code INT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(100) NOT NULL,\000a    quantity INT NOT NULL CHECK (quantity >= 0),\000a    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\000a    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\000a);\000a\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF IT NOT EXISTS products(
+    code INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL CHECK (quantity >= 0),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ [42001-224]
+2025-11-26 21:17:39.369449-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.389127-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.409919-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.430712-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.456722-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.474114-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.492011-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.508683-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.525504-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.547073-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.566936-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.584866-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.611575-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.632187-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.651722-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.668881-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.684575-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.700364-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.715451-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.732445-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.749621-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.775339-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:39.793299-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 21:17:39.811521-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 21:17:40.025704-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products ORDER BY code [42104-224]
+2025-11-26 21:17:40.086306-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE quantity < 10 ORDER BY quantity [42104-224]
+2025-11-26 21:17:58.789022-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products ORDER BY code [42104-224]
+2025-11-26 21:17:59.458172-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products ORDER BY code [42104-224]
+2025-11-26 22:16:47.790305-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [*]IF IT NOT EXISTS products(\000a    code INT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(100) NOT NULL,\000a    quantity INT NOT NULL CHECK (quantity >= 0),\000a    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\000a    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\000a);\000a\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF IT NOT EXISTS products(
+    code INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL CHECK (quantity >= 0),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ [42001-224]
+2025-11-26 22:16:47.872748-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:47.893656-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:47.917179-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:47.938288-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:47.964783-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:47.983248-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:47.999882-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.016614-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.033762-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.062391-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.085659-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.103055-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.119021-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.135329-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.152081-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.168311-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.184063-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.200861-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.216384-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.232570-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.249121-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.271212-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.288063-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE name LIKE ? ORDER BY name [42104-224]
+2025-11-26 22:16:48.303739-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+INSERT INTO products (name, quantity) VALUES (?, ?) [42104-224]
+2025-11-26 22:16:48.450221-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products ORDER BY code [42104-224]
+2025-11-26 22:16:48.531495-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (this database is empty); SQL statement:
+SELECT * FROM products WHERE quantity < 10 ORDER BY quantity [42104-224]
