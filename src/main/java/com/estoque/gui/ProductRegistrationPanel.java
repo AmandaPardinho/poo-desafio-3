@@ -95,7 +95,7 @@ public class ProductRegistrationPanel extends JPanel{
         );
         txtInstrutions.setEditable(false);
         txtInstrutions.setBackground(instructionsPanel.getBackground());
-        txtInstrutions.setFont(new Font("Arial", Font.PLAIN, 12));
+        txtInstrutions.setFont(new Font("Arial", Font.PLAIN, 36));
         instructionsPanel.add(txtInstrutions);
         
         add(instructionsPanel, BorderLayout.SOUTH);

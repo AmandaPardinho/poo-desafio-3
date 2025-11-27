@@ -12,11 +12,13 @@ public interface ProductService {
     
     List<Product> findByName(String name);
 
+    List<Product> findLowStock();
+
     Product save(Product product);
 
     void delete(Product product);
 
-    void deleteById(int code);
+    boolean deleteById(int code);
 
     boolean backupText(String filePath);
 

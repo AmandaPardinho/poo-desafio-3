@@ -36,13 +36,13 @@ public class ListLowStockPanel extends JPanel{
 
         JLabel lblAviso = new JLabel("⚠️ Produtos que necessitam reposição");
         lblAviso.setForeground(Color.RED);
-        lblAviso.setFont(new Font("Arial", Font.BOLD, 12));
+        lblAviso.setFont(new Font("Arial", Font.BOLD, 36));
         buttonPanel.add(Box.createHorizontalStrut(20));
         buttonPanel.add(lblAviso);
         
-        buttonPanel.add(buttonPanel, BorderLayout.NORTH);
+        topPanel.add(buttonPanel, BorderLayout.NORTH);
         
-        add(buttonPanel, BorderLayout.NORTH);
+        add(topPanel, BorderLayout.NORTH);
         
         String[] columns = {"Código", "Nome do Produto", "Quantidade", "Status"};
         tableModel = new DefaultTableModel(columns, 0) {
@@ -66,7 +66,7 @@ public class ListLowStockPanel extends JPanel{
         
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         lblTotal = new JLabel("Produtos com baixo estoque: 0");
-        lblTotal.setFont(new Font("Arial", Font.BOLD, 12));
+        lblTotal.setFont(new Font("Arial", Font.BOLD, 36));
         bottomPanel.add(lblTotal);
         
         add(bottomPanel, BorderLayout.SOUTH);

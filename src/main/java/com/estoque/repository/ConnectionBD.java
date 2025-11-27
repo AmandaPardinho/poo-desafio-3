@@ -15,7 +15,7 @@ public class ConnectionBD {
     private static final String USER = "sa";
     private static final String PASSWORD = "";
 
-    public static Connection getConnect() throws SQLException{
+    public static Connection getConnect() throws SQLException {
         try {
             Class.forName("org.h2.Driver");
             return DriverManager.getConnection(URL, USER, PASSWORD);
@@ -23,16 +23,16 @@ public class ConnectionBD {
             throw new SQLException("Driver H2 não encontrado", e);
         }
     }
-    
+
     public static void initializeDB() {
         try (Connection conn = getConnect();
-            Statement stmt = conn.createStatement()) {
-            
+                Statement stmt = conn.createStatement()) {
+
             String sql = readSqlFile("schema.sql");
-            
+
             stmt.execute(sql);
             System.out.println("Banco inicializado a partir do schema.sql!");
-            
+
         } catch (SQLException | IOException e) {
             System.err.println("Erro ao inicializar banco: " + e.getMessage());
             e.printStackTrace();
@@ -44,8 +44,7 @@ public class ConnectionBD {
         return Files.readString(path);
     }
 
-    // método para testar conexão (opcional)
-    public static boolean ConnectionTest() {
+    public static boolean connectionTest() {
         try (Connection conn = getConnect()) {
             return conn != null && !conn.isClosed();
         } catch (SQLException e) {

@@ -59,7 +59,7 @@ public class ListProductsPanel extends JPanel {
 
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         lblTotal = new JLabel("Total de produtos: 0");
-        lblTotal.setFont(new Font("Arial", Font.BOLD, 12));
+        lblTotal.setFont(new Font("Arial", Font.BOLD, 36));
         bottomPanel.add(lblTotal);
 
         add(bottomPanel, BorderLayout.SOUTH);

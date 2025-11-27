@@ -12,11 +12,16 @@ import java.util.Optional;
 
 import com.estoque.entity.Product;
 import com.estoque.repository.ProductRepository;
+import com.estoque.repository.impl.ProductRepositoryImpl;
 import com.estoque.service.ProductService;
 
 public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository;
+
+    public ProductServiceImpl(){
+        this.productRepository = new ProductRepositoryImpl();
+    }
 
     @Override
     public Optional<Product> findById(int code) {
@@ -45,13 +50,22 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> findLowStock(){
+        return productRepository.findLowStock();
+    }
+
+    @Override
     public void delete(Product product) {
         productRepository.delete(product);
     }
 
     @Override
-    public void deleteById(int code) {
-        productRepository.deleteById(code);
+    public boolean deleteById(int code) {
+        if(productRepository.deleteById(code)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
